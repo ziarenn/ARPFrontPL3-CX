@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Form from "./components/Form/Form";
+import Navbar from "./components/Navbar";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = { keyword: "", currencyTable: null };
+    this.componentDidUpdate = this.componentDidUpdate.bind(this);
+    this.setState = this.setState.bind(this);
+  }
+
+  componentDidUpdate() {
+    console.log(this.state);
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <Navbar />
+        <Form setState={this.setState} />
+      </div>
+    );
+  }
 }
 
 export default App;
